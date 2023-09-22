@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 
 //MIDDLEWARE
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); //what does this mean 
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.static("public"));
 
 //ROUTES
