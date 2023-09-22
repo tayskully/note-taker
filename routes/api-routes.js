@@ -12,7 +12,7 @@ router.get('/notes', (req, res) => {
     res.json(JSON.parse(saveNotes))
     
   });
-
+//posts the new notes in array in db 
   router.post('/notes', (req, res) => {
     const saveNotes = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/db.json')))
     saveNotes.push({...req.body, id: uuidv4()})
@@ -20,7 +20,7 @@ router.get('/notes', (req, res) => {
     res.json({message: "You've saved a note!"})
   }
   );
-
+//deletes the notes from the array in db
   router.delete('/notes/:id', (req, res) => {
     const saveNotes = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/db.json')))
     const updatedNotes = saveNotes.filter(note => note.id !== req.params.id )
